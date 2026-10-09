@@ -47,6 +47,6 @@ function applyGrade(key){
 function openGradePicker(){if(gradeBackdrop) gradeBackdrop.hidden=false}
 if(gradeOptions) gradeOptions.addEventListener('click',e=>{const b=e.target.closest('[data-grade]');if(b)applyGrade(b.dataset.grade)});
 const savedGrade=localStorage.getItem('physicsGrade');
-if(savedGrade&&gradeNames[savedGrade]) applyGrade(savedGrade); else openGradePicker();
+if(savedGrade&&gradeNames[savedGrade]) applyGrade(savedGrade);
 document.querySelectorAll('.course-filter,.filter-btn').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.filter-btn').forEach(x=>x.classList.toggle('active',x===btn));const filter=btn.dataset.filter;document.querySelectorAll('.unit').forEach((card,i)=>{const category=i<3?'electric':i<5?'waves':'modern';card.classList.toggle('is-hidden',filter!=='all'&&filter!==category)})}));
 
