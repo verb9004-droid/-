@@ -1,0 +1,3 @@
+window.SUPABASE_URL='https://srebfrysaaheckhqxlwq.supabase.co';
+window.SUPABASE_ANON_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNyZWJmcnlzYWFoZWNraHF4bHdxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTE1NDc5NTYsImV4cCI6MjEwNzEyMzk1Nn0.F1U5i-ozzApXk3YoTn45LMQgizk7eF-5LFB3hDbWeYk';
+
