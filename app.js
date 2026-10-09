@@ -33,4 +33,20 @@ let pdfUrl=null;document.getElementById('pdf-file').addEventListener('change',e=
 document.getElementById('menubtn').onclick=()=>document.getElementById('links').classList.toggle('open');document.querySelectorAll('.links a').forEach(a=>a.onclick=()=>document.getElementById('links').classList.remove('open'));window.addEventListener('resize',()=>drawLab(labs[currentLab].draw));
 
 // Course filters keep the unit cards and their simulator actions intact.
+// Grade selection keeps the learner's curriculum choice on this device.
+const gradeNames={prep1:'أولى إعدادي',prep2:'تانية إعدادي',prep3:'تالتة إعدادي',sec1:'أولى ثانوي',sec2:'تانية ثانوي',sec3:'تالتة ثانوي'};
+const gradeBackdrop=document.getElementById('grade-backdrop');
+const gradeOptions=document.getElementById('grade-options');
+function applyGrade(key){
+  const name=gradeNames[key]||gradeNames.sec2;
+  localStorage.setItem('physicsGrade',key);
+  document.documentElement.dataset.grade=key;
+  document.querySelectorAll('.grade-label').forEach(el=>el.textContent=name);
+  if(gradeBackdrop) gradeBackdrop.hidden=true;
+}
+function openGradePicker(){if(gradeBackdrop) gradeBackdrop.hidden=false}
+if(gradeOptions) gradeOptions.addEventListener('click',e=>{const b=e.target.closest('[data-grade]');if(b)applyGrade(b.dataset.grade)});
+const savedGrade=localStorage.getItem('physicsGrade');
+if(savedGrade&&gradeNames[savedGrade]) applyGrade(savedGrade); else openGradePicker();
 document.querySelectorAll('.course-filter,.filter-btn').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.filter-btn').forEach(x=>x.classList.toggle('active',x===btn));const filter=btn.dataset.filter;document.querySelectorAll('.unit').forEach((card,i)=>{const category=i<3?'electric':i<5?'waves':'modern';card.classList.toggle('is-hidden',filter!=='all'&&filter!==category)})}));
+
