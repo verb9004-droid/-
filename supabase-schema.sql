@@ -28,6 +28,11 @@ alter table public.profiles enable row level security;
 alter table public.lessons enable row level security;
 alter table public.student_progress enable row level security;
 
+drop policy if exists "profile owner can read" on public.profiles;
+drop policy if exists "students read published lessons" on public.lessons;
+drop policy if exists "teachers manage lessons" on public.lessons;
+drop policy if exists "students manage own progress" on public.student_progress;
+
 create or replace function public.is_teacher()
 returns boolean language sql stable security definer set search_path = public
 as $$ select exists(select 1 from public.profiles where id = auth.uid() and role = 'teacher') $$;
