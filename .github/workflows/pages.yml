@@ -27,7 +27,7 @@ jobs:
       - name: Stage public site files
         run: |
           mkdir public-site
-          cp index.html login.html register.html auth.js session-nav.js supabase-config.js auth.css dashboard.html stage.html teacher.html teacher-guard.js lesson1.html lesson2.html styles.css app.js lesson.css 'مذكرة_الدرس_الأول_القياس_الفيزيائي.pdf' 'مذكرة_الفصل_الثاني_الدرس_الأول_الحركة_والسرعة.pdf' public-site/
+          cp index.html login.html register.html auth.js session-nav.js supabase-config.js auth.css dashboard.html stage.html stage.js teacher.html teacher-guard.js lesson1.html lesson2.html styles.css app.js lesson.css 'مذكرة_الدرس_الأول_القياس_الفيزيائي.pdf' 'مذكرة_الفصل_الثاني_الدرس_الأول_الحركة_والسرعة.pdf' public-site/
       - name: Upload public site files only
         uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3
         with:
